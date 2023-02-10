@@ -1,0 +1,105 @@
+/*
+Regole di reset 
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+Aggiungo un colore di background al body
+*/
+
+body {
+    background-color: #00968833;
+}
+
+
+/* 
+    Centra l'elemento con classe "container" 
+    e imposta i margini e i padding
+*/
+.container {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 40px);
+}
+
+/* 
+    Imposta la proprietà display su "flex" per l'elemento con classe "griglia" 
+    e abilita il wrap del contenuto 
+*/
+.griglia {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+
+}
+
+/* 
+    Imposta lo stile per tutti i figli dell'elemento con classe "griglia"   
+*/
+.griglia>* {
+    border: 2px solid black;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.griglia>*:hover {
+    transform: scale(1.1);
+}
+
+
+#startGame {
+    padding: 50px;
+    font-weight: bold;
+    background-color: #009621;
+    margin: 50px;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#startGame:hover {
+    background-color: #4CAF50;
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 10px black;
+}
+
+
+.bg-green {
+    background-color: #009621;
+}
+
+#restartGame {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#restartGame :hover {
+    background-color: #3e8e41;
+}
