@@ -103,3 +103,7 @@ body {
 #restartGame :hover {
     background-color: #3e8e41;
 }
+
+.bg-red {
+    background-color: red;
+}

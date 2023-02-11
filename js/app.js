@@ -34,7 +34,7 @@ let caselleNonBombePremute = 0;
 // Aggiungiamo un evento al clic sul pulsante "startGame"
 startButton.addEventListener("click", function () {
 // Rimuoviamo il pulsante "startGame" dalla pagina
-document.querySelector("#startGame").remove();
+document.querySelector("#startGame").style.display = "none";
 
 // Generiamo l'array delle bombe
 function generaBombe() {
@@ -58,11 +58,12 @@ restartButton.style.display = "block";
 
 restartButton.addEventListener("click", function () {
 // Reset del gioco
-generaBombe();
+bombe = [];
 tentativi = 0;
 punteggio = 0;
 caselleNonBombePremute = 0;
 grigliaElement.innerHTML = "";
+startButton.click();
 });
 
 // Creiamo un ciclo per generare tutte le celle della griglia
@@ -103,7 +104,8 @@ celle.forEach(function (cella) {
   // Se la cella è una bomba, coloriamola di rosso e terminiamo il gioco
   cella.classList.add("bg-red");
   alert("Hai perso! Punteggio: " + caselleNonBombePremute);
-    // Reset del gioco dopo 2 secondi
+  
+    // Reset del gioco
     setTimeout(function() {
       bombe = [];
       tentativi = 0;
@@ -111,7 +113,7 @@ celle.forEach(function (cella) {
       caselleNonBombePremute = 0;
       grigliaElement.innerHTML = "";
       startButton.click();
-    }, 2000);
+    },);
   }
   tentativi++;
   
@@ -119,7 +121,7 @@ celle.forEach(function (cella) {
   if (tentativi === maxTentativi) {
     alert("Hai perso! Punteggio: " + caselleNonBombePremute);
   
-    // Reset del gioco dopo 2 secondi
+    // Reset del gioco
     setTimeout(function() {
       bombe = [];
       tentativi = 0;
@@ -127,7 +129,7 @@ celle.forEach(function (cella) {
       caselleNonBombePremute = 0;
       grigliaElement.innerHTML = "";
       startButton.click();
-    }, 2000);
+    }, );
   }
 });
 })});  
