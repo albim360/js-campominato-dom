@@ -32,7 +32,7 @@ restartButton.style.display = "none";
 let caselleNonBombePremute = 0;
 
 // Dichiariamo la variabile per il lato della griglia
-let latoGriglia = 7;
+let latoGriglia = 15;
 
 // Selezioniamo le celle in base alla difficoltà
 selectDifficulty.addEventListener("change", function () {

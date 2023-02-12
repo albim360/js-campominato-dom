@@ -17,20 +17,11 @@
         <option value="medio">Medio (10x10)</option>
         <option value="difficile">Difficile (9x9)</option>
         <option value="impossibile">Impossibile (7x7)</option>
-        <button onclick="mostraDifficolta()">Mostra difficoltà</button>
       </select>
       <br />
       <span class="punteggio"></span>
 
       <div class="container">
-        <script>
-          function mostraDifficolta() {
-            var select = document.getElementById("difficulty");
-            var difficolta = select.options[select.selectedIndex].value;
-            console.log("Difficoltà selezionata: " + difficolta);
-          }
-        </script>
-
         <!-- Bottone per avviare e resettare il gioco -->
         <button id="startGame">GIOCA</button>
         <button id="restartGame">RESTART</button>
