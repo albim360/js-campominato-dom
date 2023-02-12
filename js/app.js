@@ -29,10 +29,10 @@ restartButton.style.display = "none";
 let caselleNonBombePremute = 0;
 
 // Dichiariamo la variabile per il lato della griglia
-let latoGriglia = 7
+let latoGriglia = 7;
 
 // Selezioniamo le celle in base alla difficoltà
-selectDifficulty.addEventListener("change", function() {
+selectDifficulty.addEventListener("change", function () {
   if (selectDifficulty.value === "facile") {
     latoGriglia = 7;
   } else if (selectDifficulty.value === "medio") {
@@ -43,15 +43,14 @@ selectDifficulty.addEventListener("change", function() {
     latoGriglia = 15;
   }
 });
-console.log(latoGriglia)
-
+console.log(latoGriglia);
 
 // Aggiungiamo un evento al clic sul pulsante "startGame"
 startButton.addEventListener("click", function () {
   // Rimuoviamo il pulsante "startGame" dalla pagina
   document.querySelector("#startGame").style.display = "none";
-  document.querySelector('#difficultySelector').style.display= 'none';
-  document.querySelector('#difficulty').style.display= 'none';
+  document.querySelector("#difficultySelector").style.display = "none";
+  document.querySelector("#difficulty").style.display = "none";
 
   // Calcoliamo il numero totale di celle nella griglia
   const numeroCelle = latoGriglia * latoGriglia;
@@ -69,11 +68,10 @@ startButton.addEventListener("click", function () {
         bombe.push(numero);
         i++;
 
-        console.log(bombe)
+        console.log(bombe);
       }
     }
   }
-  
 
   generaBombe();
 
@@ -108,7 +106,38 @@ startButton.addEventListener("click", function () {
       if (bombe.includes(i)) {
         // Se la cella è una bomba, cambiamo il colore della cella in rosso e mostriamo un messaggio di sconfitta
         cella.style.backgroundColor = "red";
-        document.querySelector(".punteggio").innerHTML ='Punteggio: ' + punteggio;
+        document.querySelector(".punteggio").innerHTML =
+          "Punteggio: " + punteggio;
+        // Troviamo tutte le celle della griglia
+        const celleGriglia = document.querySelectorAll(".cella");
+
+        // Iteriamo su tutte le celle della griglia
+        celleGriglia.forEach((cella) => {
+          // Verifichiamo se la cella è una bomba o meno
+          if (bombe.includes(parseInt(cella.id.split("-")[1]))) {
+             // Troviamo tutte le celle della griglia
+        const celleGriglia = document.querySelectorAll(".cella");
+
+        // Iteriamo su tutte le celle della griglia
+        celleGriglia.forEach((cella) => {
+          // Verifichiamo se la cella è una bomba o meno
+          if (bombe.includes(parseInt(cella.id.split("-")[1]))) {
+            // Se la cella è una bomba, cambiamo il colore della cella in rosso
+            cella.style.backgroundColor = "red";
+            cella.innerHTML = "💣";
+          } else {
+            // Se la cella non è una bomba, cambiamo il colore della cella in oro
+            cella.style.backgroundColor = "green";
+          }
+        });
+            // Se la cella è una bomba, cambiamo il colore della cella in rosso
+            cella.style.backgroundColor = "red";
+            cella.innerHTML = "💣";
+          } else {
+            // Se la cella non è una bomba, cambiamo il colore della cella in oro
+            cella.style.backgroundColor = "green";
+          }
+        });
         setTimeout(function () {
           alert("BOOM! Hai perso il gioco!");
           location.reload();
@@ -120,9 +149,25 @@ startButton.addEventListener("click", function () {
         tentativi++;
         caselleNonBombePremute++;
         punteggio = caselleNonBombePremute;
-        document.querySelector(".punteggio").innerHTML = 'Punteggio: ' + punteggio;
+        document.querySelector(".punteggio").innerHTML =
+          "Punteggio: " + punteggio;
         // Verifichiamo se il giocatore ha vinto o meno
         if (tentativi === maxTentativi) {
+           // Troviamo tutte le celle della griglia
+        const celleGriglia = document.querySelectorAll(".cella");
+
+        // Iteriamo su tutte le celle della griglia
+        celleGriglia.forEach((cella) => {
+          // Verifichiamo se la cella è una bomba o meno
+          if (bombe.includes(parseInt(cella.id.split("-")[1]))) {
+            // Se la cella è una bomba, cambiamo il colore della cella in rosso
+            cella.style.backgroundColor = "red";
+            cella.innerHTML = "💣";
+          } else {
+            // Se la cella non è una bomba, cambiamo il colore della cella in oro
+            cella.style.backgroundColor = "gold";
+          }
+        });
           setTimeout(function () {
             alert("Complimenti! Hai vinto il gioco!");
             location.reload();
