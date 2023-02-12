@@ -36,13 +36,13 @@ let latoGriglia = 7;
 
 // Selezioniamo le celle in base alla difficoltà
 selectDifficulty.addEventListener("change", function () {
-  if (selectDifficulty.value === "facile") {
+  if (selectDifficulty.value === "impossibile") {
     latoGriglia = 7;
-  } else if (selectDifficulty.value === "medio") {
-    latoGriglia = 9;
   } else if (selectDifficulty.value === "difficile") {
+    latoGriglia = 9;
+  } else if (selectDifficulty.value === "medio") {
     latoGriglia = 10;
-  } else if (selectDifficulty.value === "impossibile") {
+  } else if (selectDifficulty.value === "facile") {
     latoGriglia = 15;
   }
 });
