@@ -11,6 +11,9 @@ let tentativi = 0;
 
 let punteggio = 0;
 
+// Variabile per non assegnare punti doppi per la singola cella
+let cellePremute = [];
+
 // Selezioniamo il pulsante "startGame" dalla pagina HTML
 const startButton = document.querySelector("#startGame");
 
@@ -102,7 +105,12 @@ startButton.addEventListener("click", function () {
     grigliaElement.appendChild(cella);
     // Aggiungiamo un evento al clic sulla cella
     cella.addEventListener("click", function () {
-      // Verifichiamo se la cella è una bomba o meno
+      if (cellePremute.includes(cella.id)) {
+        // La cella è già stata premuta, non fare niente
+        return;
+      }
+      cellePremute.push(cella.id);
+
       if (bombe.includes(i)) {
         // Se la cella è una bomba, cambiamo il colore della cella in rosso e mostriamo un messaggio di sconfitta
         cella.style.backgroundColor = "red";
