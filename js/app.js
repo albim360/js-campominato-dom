@@ -3,11 +3,8 @@ console.log("prato fiorito");
 // Dichiariamo la variabile per il lato della griglia
 let latoGriglia = 10;
 
-// Calcoliamo il numero totale di celle nella griglia
-let numeroCelle = latoGriglia * latoGriglia;
-
 // Definiamo il numero massimo di tentativi consentiti
-let maxTentativi = numeroCelle - 16;
+let maxTentativi = 0;
 
 // Inizializziamo l'array delle bombe
 let bombe = [];
@@ -41,33 +38,19 @@ startButton.addEventListener("click", function () {
   document.querySelector('#difficultySelector').style.display= 'none';
   document.querySelector('#difficulty').style.display= 'none';
 
-  // Selezioniamo le celle in base alla difficolta
+  // Selezioniamo le celle in base alla difficoltà
   if (selectDifficulty.value === "1") {
     latoGriglia = 7;
-    numeroCelle = 49;
   } else if (selectDifficulty.value === "2") {
     latoGriglia = 9;
-    numeroCelle = 81;
   } else if (selectDifficulty.value === "3") {
     latoGriglia = 10;
-    numeroCelle = 100;
-  }
-  
-
-
-  // Impostiamo il lato della griglia in base alla difficoltà selezionata
-  if (selectDifficulty.value === "1") {
-    latoGriglia = 10;
-    numeroCelle = 49;
-  } else if (selectDifficulty.value === "2") {
-    latoGriglia = 9;
-    numeroCelle = 81;
-  } else if (selectDifficulty.value === "3") {
-    latoGriglia = 7;
-    numeroCelle = 100;
   }
 
-  // Ricalcoliamo il numero massimo di tentativi consentiti
+  // Calcoliamo il numero totale di celle nella griglia
+  const numeroCelle = latoGriglia * latoGriglia;
+
+  // Definiamo il numero massimo di tentativi consentiti
   maxTentativi = numeroCelle - 16;
 
   // Generiamo l'array delle bombe
