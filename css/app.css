@@ -23,6 +23,7 @@ body {
 main {
     height: 100vh;
     padding: 100px;
+    text-align: center;
 
 }
 
@@ -109,5 +110,11 @@ main {
 }
 
 .bg-red {
-    background-color: red;
+    background-color: red!important;
+}
+
+.punteggio {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
 }

@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prato Fiorito</title>
-    <link rel="stylesheet" href="./css/app.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/app.css" />
+  </head>
+  <body>
     <main>
-        <div class="container">
-            <!-- Bottone per avviare e resettare il gioco -->
-            <button id="startGame">GIOCA 10X10</button>
-            <button id="restartGame">RESTART</button>
-                    <!-- Div che conterrà la griglia di gioco -->
+        <label for="difficolta" id="difficultySelector">Seleziona la difficoltà:</label>
+        <select id="difficulty">
+          <option value="facile">Facile</option>
+          <option value="medio">Medio</option>
+          <option value="difficile">Difficile</option>
+          <button onclick="mostraDifficolta()">Mostra difficoltà</button>
+        </select> <br>
+        <span class="punteggio"></span> 
+
+
+      <div class="container">
+       
+
+        <script>
+          function mostraDifficolta() {
+            var select = document.getElementById("difficulty");
+            var difficolta = select.options[select.selectedIndex].value;
+            console.log("Difficoltà selezionata: " + difficolta);
+          }
+        </script>
+        
+        <!-- Bottone per avviare e resettare il gioco -->
+        <button id="startGame">GIOCA 10X10</button>
+        <button id="restartGame">RESTART</button>
+        <!-- Div che conterrà la griglia di gioco -->
         <div class="griglia"></div>
-    </div>
-</main>
+      </div>
+    </main>
 
-
-
-<script src="./js/app.js"></script>
-</body>
+    <script src="./js/app.js"></script>
+  </body>
 </html>
