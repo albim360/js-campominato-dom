@@ -1,8 +1,5 @@
 console.log("prato fiorito");
 
-// Dichiariamo la variabile per il lato della griglia
-let latoGriglia = 10;
-
 // Definiamo il numero massimo di tentativi consentiti
 let maxTentativi = 0;
 
@@ -31,21 +28,30 @@ restartButton.style.display = "none";
 
 let caselleNonBombePremute = 0;
 
+// Dichiariamo la variabile per il lato della griglia
+let latoGriglia = 7
+
+// Selezioniamo le celle in base alla difficoltà
+selectDifficulty.addEventListener("change", function() {
+  if (selectDifficulty.value === "facile") {
+    latoGriglia = 7;
+  } else if (selectDifficulty.value === "medio") {
+    latoGriglia = 9;
+  } else if (selectDifficulty.value === "difficile") {
+    latoGriglia = 10;
+  } else if (selectDifficulty.value === "impossibile") {
+    latoGriglia = 15;
+  }
+});
+console.log(latoGriglia)
+
+
 // Aggiungiamo un evento al clic sul pulsante "startGame"
 startButton.addEventListener("click", function () {
   // Rimuoviamo il pulsante "startGame" dalla pagina
   document.querySelector("#startGame").style.display = "none";
   document.querySelector('#difficultySelector').style.display= 'none';
   document.querySelector('#difficulty').style.display= 'none';
-
-  // Selezioniamo le celle in base alla difficoltà
-  if (selectDifficulty.value === "1") {
-    latoGriglia = 7;
-  } else if (selectDifficulty.value === "2") {
-    latoGriglia = 9;
-  } else if (selectDifficulty.value === "3") {
-    latoGriglia = 10;
-  }
 
   // Calcoliamo il numero totale di celle nella griglia
   const numeroCelle = latoGriglia * latoGriglia;
@@ -56,22 +62,18 @@ startButton.addEventListener("click", function () {
   // Generiamo l'array delle bombe
   function generaBombe() {
     bombe = [];
-    for (let i = 0; i < 16; i++) {
-      let numero = i + 1;
-      // Verifichiamo che il numero non sia già presente nell'array e che non si ripeta la posizione
-      while (
-        bombe.includes(numero) ||
-        bombe.includes(numero - 1) ||
-        bombe.includes(numero + 1) ||
-        bombe.includes(numero + latoGriglia) ||
-        bombe.includes(numero - latoGriglia)
-      ) {
-        numero = Math.floor(Math.random() * numeroCelle) + 1;
+    let i = 0;
+    while (i < 16) {
+      let numero = Math.floor(Math.random() * numeroCelle) + 1;
+      if (!isNaN(numero) && !bombe.includes(numero)) {
+        bombe.push(numero);
+        i++;
+
+        console.log(bombe)
       }
-      bombe.push(numero);
-      console.log(bombe);
     }
   }
+  
 
   generaBombe();
 

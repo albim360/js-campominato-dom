@@ -68,11 +68,12 @@ main {
 
 #startGame {
     padding: 50px;
+    width: 50%;
     font-weight: bold;
     background-color: #009621;
-    margin: 50px;
-    font-size: 30px;
-    border-radius: 10px;
+    margin: 10px;
+    font-size: 25px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
